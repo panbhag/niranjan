@@ -11,7 +11,7 @@ var rawData = {a: 100, b:{c: 200} };
 var data = Niranjan(data);
 ```
 
-niranjan
+
 
 Get value of a
 ```javascript
@@ -19,13 +19,13 @@ Get value of a
 data.a.getValue()
 ```
 
-Get value of b
+Get value of c
 
 ```javascript
 data.b.c.getValue()
 ```
 
-When we change the value of any node, then all the ancestor node changes, others dont change, change the value of c
+When we change the value of any node, then all the ancestor node changes, others dont change. Lets change the value of c
 
 ```javascript
 var old_a = data.a;
@@ -36,6 +36,6 @@ data.b.c.set(201);
 
 data.b == old_b //false
 data.b.c == olde_c //false
-data.a == old_a //true
+data.a == old_a //true, this doesnt change as its not an ancestor of c
 
 ```
