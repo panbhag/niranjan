@@ -4,7 +4,7 @@ Immutable data library for react js with simpler interface.
 Interface is same as https://github.com/mquan/cortex with immutability added.
 
 # Quickstart
-Creat a niranjan new Niranjan object
+Creat a new Niranjan object, note that we are not using the new keyword.
 ```javascript
 var rawData = {a: 100, b:{c: 200} };
 
