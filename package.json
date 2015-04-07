@@ -1,0 +1,31 @@
+{
+  "name": "niranjan",
+  "version": "0.0.1",
+  "description": "An immutable library for React with a very  simple interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panbhag/niranjan"
+  },
+  "keywords": [
+    "immutable",
+    "react",
+    "data"
+  ],
+  "author": "Pankaj Bhageria (panbhag)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panbhag/niranjan/issues"
+  },
+  "homepage": "https://github.com/panbhag/niranjan",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-browserify": "^0.5.1"
+  },
+  "dependencies": {
+    "chai": "^2.2.0"
+  }
+}
