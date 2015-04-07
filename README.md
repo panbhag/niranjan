@@ -35,7 +35,7 @@ var old_c = data.c;
 data.b.c.set(201);
 
 data.b == old_b //false
-data.b.c == olde_c //false
+data.b.c == old_c //false
 data.a == old_a //true, this doesnt change as its not an ancestor of c
 
 ```
