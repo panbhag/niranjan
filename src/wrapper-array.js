@@ -22,7 +22,7 @@ WrapperArray.prototype.regenerateFromIndex = function(index)
         for(var i = index; i < this.__value.length; i ++)
         {
             var path = this.path + "." + i ;
-            this.__wrappedArray[i] = WrapperArray.wrapperCreator(data[i],this.root,path);
+            this.__wrappedArray[i] = WrapperArray.wrapperCreator(this.__value[i],this.root,path);
         
         }
 
@@ -64,6 +64,9 @@ WrapperArray.prototype.push = function(element){
     var path = this.path + "." + (this.value.length -1)
     var wrappedElement = WrapperArray.wrapperCreator(element,this.root,path);
     this.__wrappedArray.push(wrappedElement);
+    this.root.updatePath(this.path,this.__value);
+
+
     //this.regenerateFromIndex(this.value.length-1);
     return this.__value.length;
 
@@ -75,21 +78,41 @@ WrapperArray.prototype.unshift = function(element){
   var path = this.path + "." + (this.value.length -1)
   var wrappedElement = WrapperArray.wrapperCreator(element,this.root,path);
   this.__wrappedArray.unshift(wrappedElement);
+  this.root.updatePath(this.path,this.__value);
   //this.regenerateFromIndex(0);
   return this.__value.length;
+
+}
+
+WrapperArray.prototype.getIndex = function(index)
+{
+    return this.__wrappedArray[index];
+}
+
+WrapperArray.prototype.setIndex = function(index,element)
+{
+    this.__value[index] = element;
+    var path = this.path + "." + index;
+    this.__wrappedArray[index] =WrapperArray.wrapperCreator(element,this.root,path);
+    this.root.updatePath(this.path,this.__value);
+    return this.__wrappedArray[index]
 
 }
 
 WrapperArray.prototype.shift = function(){
     this.__value.shift();
     var wrappedElement = this.__wrappedArray.shift();
+    this.root.updatePath(this.path,this.__value);
     //this.regenerateFromIndex(0);
+    //this.root.updatePath(this.path,value);
+
     return wrappedElement;  
 }
 
 WrapperArray.prototype.pop = function(){
     this.__value.pop();
     var wrappedElement = this.__wrappedArray.pop();
+    this.root.updatePath(this.path,this.__value);
     //this.regenerateFromIndex(0);
     return wrappedElement;
 }
@@ -104,6 +127,8 @@ WrapperArray.prototype.move = function(old_index, new_index){
         }
     }
     this.splice(new_index, 0, this.splice(old_index, 1)[0]);
+    this.root.updatePath(this.path,this.__value);
+
     return this; // for testing purposes
 };
 
@@ -117,6 +142,8 @@ WrapperArray.prototype.insertAt  =function(element,index)
     var path = this.path + "." + index;
     var wrappedElement = WrapperArray.wrapperCreator(element,this.root,path);
     this.__wrappedArray.splice(index,0,wrappedElement);
+    this.root.updatePath(this.path,this.__value);
+
     return this.__value.length;
 }
 
@@ -124,6 +151,8 @@ WrapperArray.prototype.deleteAt = function(index)
 {
     this.__value.splice(index,1);
     this.__wrappedArray.splice(index,1);
+    this.root.updatePath(this.path,this.__value);
+
     return this.__value.length;
 }
 

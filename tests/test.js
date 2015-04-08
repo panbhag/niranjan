@@ -14,6 +14,43 @@ describe('Array', function(){
   })
 });
 
+describe("Niranjan Array",function(){
+	describe("create a new object and access value via getValue",function(){
+
+		var rawData = {
+			items:[{name:"first"},{name:"second"},{name:"third"},{name:"fourth"},{name:"fifth"}]
+		}
+
+		var data = Niranjan(rawData);
+
+		data.items.getIndex(0).getValue().name.should.equal("first");
+		data.items.getIndex(1).getValue().name.should.equal("second");
+		data.items.getValue().length.should.equal(5);
+	});
+
+
+	describe("create deep array object and access value via getValue",function(){
+
+		var rawData = {entry:{
+						list:[
+								{a:[101,102,103],b:[201,202]},
+								{a:[301,302],b:[401]}
+
+							]
+						}
+					   };
+		// describe("setIndex");
+		// describe("getIndex");
+		// describe("push");
+		// describe("pop");
+		// describe("shift");
+		// describe("unshift");
+		// describe("insertAt");
+		// describe("deleteAt")
+
+})
+})
+
 
 describe('Niranjan',function(){
 
