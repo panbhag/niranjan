@@ -47,3 +47,12 @@ data.b.c == old_c //false
 data.a == old_a //true, this doesnt change as its not an ancestor of c
 
 ```
+
+Binding an event whenever any data changes
+
+```javascript
+data.onUpdate(function(){
+  //write code here to re-render your entire React page
+})
+```
+
