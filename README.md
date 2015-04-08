@@ -8,7 +8,7 @@ Creat a new Niranjan object, note that we are not using the new keyword.
 ```javascript
 var rawData = {a: 100, b:{c: 200} };
 
-var data = Niranjan(data);
+var data = Niranjan(rawData);
 ```
 
 
@@ -18,6 +18,14 @@ Get value of a
 
 data.a.getValue()
 ```
+
+Get value of b
+```javascript
+
+data.b.getValue() // {c:200}
+```
+
+
 
 Get value of c
 
