@@ -26,6 +26,7 @@
     "gulp-browserify": "^0.5.1"
   },
   "dependencies": {
-    "chai": "^2.2.0"
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
   }
 }

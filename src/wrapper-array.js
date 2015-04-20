@@ -91,11 +91,11 @@ WrapperArray.prototype.getIndex = function(index)
 
 WrapperArray.prototype.setIndex = function(index,element)
 {
-    this.__value[index] = element;
+    //this.__value[index] = element;
     var path = this.path + "." + index;
-    this.__wrappedArray[index] =WrapperArray.wrapperCreator(element,this.root,path);
+    //this.__wrappedArray[index] =WrapperArray.wrapperCreator(element,this.root,path);
     this.root.updatePath(this.path,this.__value);
-    return this.__wrappedArray[index]
+    //return this.__wrappedArray[index]
 
 }
 

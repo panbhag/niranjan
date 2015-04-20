@@ -4,15 +4,15 @@ var Niranjan = require('../src/index.js');
 console.log('***************** loaded Niranjan js');
 var assert = require("assert")
 
-describe('Array', function(){
-  describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-      [1,2,3].indexOf(5).should.equal(-1);
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    })
-  })
-});
+// describe('Array', function(){
+//   describe('#indexOf()', function(){
+//     it('should return -1 when the value is not present', function(){
+//       [1,2,3].indexOf(5).should.equal(-1);
+//       assert.equal(-1, [1,2,3].indexOf(5));
+//       assert.equal(-1, [1,2,3].indexOf(0));
+//     })
+//   })
+// });
 
 describe("Niranjan Array",function(){
 	describe("create a new object and access value via getValue",function(){
@@ -39,6 +39,9 @@ describe("Niranjan Array",function(){
 							]
 						}
 					   };
+		var data = Niranjan(rawData);
+		data.entry.list.getIndex(1).a.getIndex(0).getValue().should.equal(301);	
+
 		// describe("setIndex");
 		// describe("getIndex");
 		// describe("push");
@@ -48,7 +51,25 @@ describe("Niranjan Array",function(){
 		// describe("insertAt");
 		// describe("deleteAt")
 
-})
+	})
+
+	describe("setIndex",function(){
+
+		var rawData = {a:[1,2,3,4]};
+		data = Niranjan(rawData);
+		var old_a = data.a;
+		data.a.setIndex(0,10);
+		data.a.getIndex(0).getValue().should.equal(10);
+		console.log("8*****W#$##QR#",old_a);
+		old_a.getIndex(0).getValue().should.equal(1);
+		old_a.getIndex(0).should.not.equal(data.a.getIndex(0));
+		old_a.should.not.equal(data.a);
+
+
+	})
+
+
+
 })
 
 
